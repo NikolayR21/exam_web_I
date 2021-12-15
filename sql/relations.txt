@@ -1,0 +1,52 @@
+[user:user_address][1:1]
+user has one user_address
+user_address belongs to one user
+
+[user_address:city][m:1]
+user_address has one city
+city belongs to many user_address
+
+[user_address:country][m:1]
+user_address has one country
+country belongs to many user_address
+
+[user:user_password][1:1]
+user has one user_password
+user_password belongs to one user
+
+[product:product_image][1:m]
+product has many product_image
+product_image belongs to one product
+
+[product:product_inventory][1:1]
+product has one product_inventory
+product_inventory belongs to one product
+
+[product:product_category][m:1]
+product has one product_category
+product_category belongs to many product
+
+[product:product_review][1:m]
+product has many product_review
+product_review belongs to one product
+
+[invoice:currency][]
+invoice has one currency
+currency belongs to many invoice
+
+[invoice:user][m:1]
+invoice belongs to one user
+user has many invoice
+
+[invoice:invoice_line][1:m]
+invoice has many invoice_line
+invoice_line belongs to one invoice
+
+[invoice_line:product][]
+invoice_line has many product
+product belongs to one invoice_line
+
+LEFT::
+prodct related data, invoice data
+DONE::
+user_address, city, currency, country, user_password, user
