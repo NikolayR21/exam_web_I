@@ -1,2 +1,13 @@
-const mysql = require('mysql2');
-const connectionString = process.env.DATABASE_URL;
+const mysql = require('mysql2/promise');
+const config = require('../config/connection.js');
+
+async function query(sql, params){
+    const connection = await mysql.createPool(config.db);
+    const [results, ] = await connection.execute(sql, params);
+
+    return results;
+}
+
+module.exports = {
+    query
+};
